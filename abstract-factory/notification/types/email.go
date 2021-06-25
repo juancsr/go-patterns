@@ -6,7 +6,7 @@ type EmailNotification struct {
 }
 
 func (*EmailNotification) SendNotification() {
-	fmt.Println("Sendin via Email")
+	fmt.Println("Sending via Email")
 }
 
 func (*EmailNotification) GetSender() ISender {
