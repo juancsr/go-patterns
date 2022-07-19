@@ -61,46 +61,44 @@ func (d *director) makeHouse() error {
 	return err
 }
 
-type houseBuilder struct{}
+type englishBuilder struct{}
 
-func (h *houseBuilder) buildRoof() error {
+func (h *englishBuilder) buildRoof() error {
 	return nil
 }
 
-func (h *houseBuilder) buildWindow() error {
+func (h *englishBuilder) buildWindow() error {
 	return nil
 }
 
-func (h *houseBuilder) buildWall() error {
+func (h *englishBuilder) buildWall() error {
 	return nil
 }
 
-func (h *houseBuilder) buildGate() error {
+func (h *englishBuilder) buildGate() error {
 	return nil
 }
 
-type casttleBuilder struct{}
+type russianBuilder struct{}
 
-func (c *casttleBuilder) buildRoof() error {
+func (c *russianBuilder) buildRoof() error {
 	return nil
 }
 
-func (c *casttleBuilder) buildWindow() error {
+func (c *russianBuilder) buildWindow() error {
 	return nil
 }
 
-func (c *casttleBuilder) buildWall() error {
+func (c *russianBuilder) buildWall() error {
 	return nil
 }
 
-func (c *casttleBuilder) buildGate() error {
+func (c *russianBuilder) buildGate() error {
 	return nil
 }
 
 func main() {
-	houseBulder := houseBuilder{}
-
-	director := newDirector(&houseBulder)
-
+	concreteBuilder := &englishBuilder{}
+	director := newDirector(concreteBuilder)
 	director.makeCastle()
 }
