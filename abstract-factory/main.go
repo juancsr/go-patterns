@@ -6,7 +6,7 @@ import "abstractfactory/notification"
 // Email
 
 func main() {
-	notificationFactory, err := notification.GetNotificationFactory("SMS")
+	notificationFactory, err := notification.GetNotificationFactory(notification.SMSNotifactionType)
 	if err != nil {
 		panic(err)
 	}

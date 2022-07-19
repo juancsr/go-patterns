@@ -6,16 +6,23 @@ import (
 	"fmt"
 )
 
+type notificationType string
+
+const (
+	SMSNotifactionType    notificationType = "SMS"
+	EmailNotificationType notificationType = "Email"
+)
+
 type INotificationFactory interface {
 	SendNotification()
 	GetSender() ISender
 }
 
-func GetNotificationFactory(notificationType string) (INotificationFactory, error) {
+func GetNotificationFactory(notificationType notificationType) (INotificationFactory, error) {
 	switch notificationType {
-	case "SMS":
+	case SMSNotifactionType:
 		return &SMSNotification{}, nil
-	case "Email":
+	case EmailNotificationType:
 		return &EmailNotification{}, nil
 	default:
 		return nil, errors.New("Unsuported notification type")
